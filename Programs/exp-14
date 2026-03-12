@@ -1,0 +1,30 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Sample dataset
+data = {
+    "feedback": [
+        "This product is very good",
+        "I like this product",
+        "The quality is excellent",
+        "Good product and good service",
+        "I like the quality"
+    ]
+}
+
+df = pd.DataFrame(data)
+
+text = " ".join(df["feedback"]).lower().split()
+
+stop = ["the","and","is","in","to","of","a"]
+words = [w for w in text if w not in stop]
+
+freq = pd.Series(words).value_counts()
+
+N = int(input("Enter N: "))
+top = freq.head(N)
+
+print(top)
+
+top.plot(kind="bar")
+plt.show()

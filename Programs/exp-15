@@ -1,0 +1,14 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import ttest_ind
+
+control = np.array([5,6,7,5,6,7])
+treatment = np.array([8,9,7,8,9,10])
+
+t_stat, p_value = ttest_ind(control, treatment)
+
+print("P-value:", p_value)
+
+plt.boxplot([control, treatment], labels=["Control","Treatment"])
+plt.title("Treatment vs Control")
+plt.show()

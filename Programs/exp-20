@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = {
+"Name":["Ronaldo","Messi","Neymar","Mbappe","Modric","Kane","Salah","DeBruyne","VanDijk","Alisson"],
+"Age":[38,36,31,25,37,30,31,32,33,31],
+"Position":["Forward","Forward","Forward","Forward","Midfielder","Forward","Forward","Midfielder","Defender","Goalkeeper"],
+"Goals":[25,23,18,27,10,22,24,15,5,1],
+"Salary":[500000,480000,450000,470000,300000,420000,410000,390000,350000,320000]
+}
+
+df = pd.DataFrame(data)
+
+print(df.nlargest(5,"Goals")[["Name","Goals"]])
+print(df.nlargest(5,"Salary")[["Name","Salary"]])
+
+avg = df["Age"].mean()
+print("Average Age:",avg)
+
+print(df[df["Age"]>avg]["Name"])
+
+df["Position"].value_counts().plot(kind="bar")
+plt.show()

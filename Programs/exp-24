@@ -1,0 +1,12 @@
+import pandas as pd
+
+products = ["Laptop","Phone","Laptop","Tablet","Phone","Laptop","Tablet","Phone"]
+
+s = pd.Series(products)
+
+freq = s.value_counts()
+
+print("Frequency Distribution:")
+print(freq)
+
+print("Most Popular Product:", freq.idxmax())

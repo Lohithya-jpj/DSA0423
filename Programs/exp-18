@@ -1,0 +1,22 @@
+import pandas as pd
+import numpy as np
+
+data = {
+"City":["Chennai","Delhi","Mumbai"],
+"Day1":[30,25,28],
+"Day2":[32,27,29],
+"Day3":[31,26,30],
+"Day4":[33,28,28]
+}
+
+df = pd.DataFrame(data)
+temps = df.iloc[:,1:]
+
+df["Mean"] = temps.mean(axis=1)
+df["Std"] = temps.std(axis=1)
+df["Range"] = temps.max(axis=1) - temps.min(axis=1)
+
+print(df[["City","Mean","Std","Range"]])
+
+print("Highest Range City:", df.loc[df["Range"].idxmax(),"City"])
+print("Most Consistent City:", df.loc[df["Std"].idxmin(),"City"])

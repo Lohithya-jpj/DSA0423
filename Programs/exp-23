@@ -1,0 +1,17 @@
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+df = pd.DataFrame({
+"income":[30000,50000,70000,40000],
+"credit":[600,720,750,650],
+"debt":[30,20,15,35],
+"employment":[2,5,8,3],
+"risk":[1,0,0,1]
+})
+
+X = df[["income","credit","debt","employment"]]
+y = df["risk"]
+
+model = DecisionTreeClassifier().fit(X,y)
+
+print(model.predict([[45000,680,25,4]]))

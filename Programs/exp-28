@@ -1,0 +1,18 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = {
+"Price":[20000,25000,30000,22000,27000],
+"Mileage":[15,18,12,16,14],
+"Engine":[1500,1800,2000,1600,1900],
+"Horsepower":[100,120,150,110,130]
+}
+
+df = pd.DataFrame(data)
+
+sns.scatterplot(x="Price", y="Mileage", data=df)
+plt.show()
+
+sns.pairplot(df)
+plt.show()
